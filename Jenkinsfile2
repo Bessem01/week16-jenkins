@@ -10,6 +10,7 @@ pipeline {
                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Bessem01_week16-jenkins'
             }
         }
+        }
         stage('all maven commands'){
             steps{
                 sh 'mvn clean test compile install package'
@@ -18,4 +19,3 @@ pipeline {
         
     }
  }
-}
