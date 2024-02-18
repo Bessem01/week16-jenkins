@@ -23,6 +23,12 @@ stage('upload artifact'){
                 sh 'curl -uadmin:AP5mZ1TGxbfJg5s8o7m1rRSRP4i -T target/bio*.jar\
                  "http://3.80.194.35:8081/artifactory/geoapp/" ' 
             }
+  }
+stage('image build'){
+            steps{
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 543498429371.dkr.ecr.us-east-1.amazonaws.com '
+                sh 'docker build -t geoapp .'
+            }
         }
-} 
+   } 
 }
